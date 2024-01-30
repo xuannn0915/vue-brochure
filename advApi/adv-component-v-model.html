@@ -7,12 +7,12 @@
   <h2>將元件內的值傳回 v-model（update:modelValue）</h2>
   <p>參考說明：<a href="https://vue3js.cn/docs/zh/guide/component-custom-events.html#v-model-%E5%8F%82%E6%95%B0">https://vue3js.cn/docs/zh/guide/component-custom-events.html#v-model-%E5%8F%82%E6%95%B0</a></p>
   {{ name }}
-  <custom-input></custom-input>
+  <custom-input v-model:text="name"></custom-input>
 
   <hr>
   <h2>多個 v-model</h2>
   {{ text }} {{ text2 }}
-  <custom-input2 ></custom-input2>
+  <custom-input2 v-model:t1="text" v-model:t2="text2" ></custom-input2>
 </div>
 
 <script>
@@ -31,17 +31,17 @@ const app = Vue.createApp({
 app.component('custom-input', {
   props: ['text'],
   template: `<input type="text"
-  class="form-control">`
+  class="form-control" :value="text" @input="$emit('update:text', $event.target.value)">`
 });
 
 app.component('custom-input2', {
   props: ['t1', 't2'],
   template: `
 <input type="text"
-  class="form-control">
+  class="form-control" :value="t1" @input="$emit('update:t1', $event.target.value)">
 
 <input type="text"
-  class="form-control">
+  class="form-control" :value="t2" @input="$emit('update:t2', $event.target.value)">
 `
 })
 
