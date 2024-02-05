@@ -6,7 +6,7 @@
     <link href="images/favicon.ico" rel="shortcut icon" />
     <meta charset="UTF-8" />
     <script src="/javascripts/vendor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.14/vue.global.min.js"></script>
   </head>
   <body class="bg-lighter">
     <div class="container main my-5">
@@ -49,37 +49,37 @@
                 <label for="name" class="form-label">姓名</label>
                 <v-field
                   id="name"
-                  name="姓名"
+                  name="name"
                   type="text"
                   class="form-control"
                   placeholder="請輸入姓名"
                   rules="required"
-                  :class="{'is-invalid':errors['姓名']}"
+                  :class="{'is-invalid':errors['name']}"
                   v-model="user.name"
                 ></v-field>
-                <error-message class="invalid-feedback" name="姓名"></error-message>
+                <error-message class="invalid-feedback" name="name"></error-message>
               </div>
 
               <div class="mb-3">
                 <label for="phone" class="form-label">電話</label>
                 <v-field
                   id="phone"
-                  name="電話"
+                  name="phone"
                   type="text"
                   class="form-control"
                   placeholder="請輸入電話"
                   :rules="isPhone"
-                  :class="{'is-invalid':errors['電話']}"
+                  :class="{'is-invalid':errors['phone']}"
                   v-model="user.phone"
                 ></v-field>
-                <error-message name="電話" class="invalid-feedback"></error-message>
+                <error-message name="phone" class="invalid-feedback"></error-message>
               </div>
 
               <div class="mb-3">
                 <label for="region" class="form-label">地區</label>
-                <v-field id="region" name="地區" class="form-control"
+                <v-field id="region" name="region" class="form-control"
                 rules="required"
-                :class="{'is-invalid':errors['地區']}"
+                :class="{'is-invalid':errors['region']}"
                 v-model="user.region"
                 as="select">
                   <option value="">請選擇地區</option>
@@ -87,30 +87,33 @@
                   <option value="高雄市">高雄市</option>
                 </v-field>
                 <error-message class="invalid-feedback"
-                name="地區"></error-message>
+                name="region"></error-message>
               </div>
 
               <div class="mb-3">
                 <label for="address" class="form-label">地址</label>
                 <v-field
                   id="address"
-                  name="地址"
+                  name="address"
                   type="text"
                   class="form-control"
                   placeholder="請輸入地址"
                   rules="required"
-                  :class="{'is-invalid':errors['地址']}"
+                  :class="{'is-invalid':errors['address']}"
                   v-model="user.address"
                 ></v-field>
-                <error-message class="invalid-feedback" name="地址"></error-message>
+                <error-message class="invalid-feedback" name="address"></error-message>
               </div>
 
               <button class="btn btn-primary" type="submit">Submit</button>
             </v-form>
           </div>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/4.1.17/vee-validate.min.js"></script>
+          
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/4.12.4/vee-validate.min.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@vee-validate/rules@4.12.4/dist/vee-validate-rules.min.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@vee-validate/i18n@4.12.4/dist/vee-validate-i18n.min.js"></script>
+          
+
           <script type="module">
             // 規則
             // VeeValidate.defineRule("email", VeeValidateRules["email"]);
