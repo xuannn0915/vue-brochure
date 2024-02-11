@@ -6,8 +6,21 @@
 <div id="app">
   <h2>路由示範</h2>
   {{ text }}
+  <br>
+  <router-link to="/a">a</router-link>
+  <br>
+  <router-link to="/b">b</router-link>
+  <router-view></router-view>
 </div>
+
 <script>
+const textA = {
+  tempplate:`<div>a</div>`
+};
+const textB = {
+  template:`<div>b</div>`
+};
+
 const app = Vue.createApp({
   data() {
     return {
@@ -18,13 +31,22 @@ const app = Vue.createApp({
 });
 
 // 路由設定
-// const router = VueRouter.createRouter({
-//   // 網址路徑模式：使用網址 hash 的形式
-//   history: VueRouter.createWebHashHistory(),
-//   // 匯入路由表
-//   routes: []
-// });
+const router = VueRouter.createRouter({
+  // 網址路徑模式：使用網址 hash 的形式
+  history: VueRouter.createWebHashHistory(),
+  // 匯入路由表
+  routes: [{
+      path:'/a',
+      component:textA,
+    },
+    {
+      path:'/b',
+      component:textB,
+    },
+  ]
+});
 
+app.use(router);
 app.mount('#app');
 </script>
 <!-- 🙇🙇練習結束🙇🙇 -->
